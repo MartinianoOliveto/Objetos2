@@ -19,6 +19,7 @@ class Empresa{
 
 class Empleado{
     const property nombre 
+    
     const property direccion
     const property estadoCivil 
     const property fechaNacimiento 
