@@ -1,11 +1,9 @@
 package tp4_supermercado;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import supermercado.Producto;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,3 +35,4 @@ public class ProductoTest {
 		assertEquals(new Double(20.4), arroz.getPrecio());
 	}
 }
+
