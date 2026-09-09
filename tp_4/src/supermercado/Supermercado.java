@@ -18,6 +18,7 @@ public class Supermercado {
 			total = total + producto.getPrecio();
 		}
 		return total; 
+		
 	}
 	
 }
