@@ -8,11 +8,20 @@ public class Supermercado {
 	private String direccion; 
 	private List<Producto> productos = new ArrayList<Producto>(); 
 	
-	public int cantidadDeProductos() {
-		return productos.size();
+	public Supermercado(String n, String d) {
+		nombre = n; 
+		direccion = d;
 	}
 	
-	public Double precioTotal() {
+	public int getCantidadDeProductos() {
+		return productos.size();
+	}
+	public void agregarProducto(Producto p) {
+		productos.add(p);
+	}
+	
+	
+	public Double getPrecioTotal() {
 		double total = 0; 
 		for(Producto producto:productos) {
 			total = total + producto.getPrecio();

@@ -19,6 +19,7 @@ public class Producto {
 	public Producto(String n, Double p) {
 		precioBase = p; 
 		nombre = n; 
+		esPrecioCuidado = false; 
 	}
 	public Producto(String n, Double p, Boolean b) {
 		precioBase = p; 
