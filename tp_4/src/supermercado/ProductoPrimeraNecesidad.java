@@ -4,7 +4,6 @@ public class ProductoPrimeraNecesidad extends Producto{
 
 	private Double descuento; 
 	
-	//Dejando que el usuario pse un parametro, pero me chupa un huevo xd
 	/*public ProductoPrimeraNecesidad(String n, Double p, Boolean b) {
 		super(n,p,true); 
 	}*/
