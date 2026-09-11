@@ -1,7 +1,7 @@
 package supermercado;
 
 public class Producto {
-	private Double precioBase; 
+	protected Double precioBase; 
 	private String nombre; 
 	private Boolean esPrecioCuidado; 
 	
