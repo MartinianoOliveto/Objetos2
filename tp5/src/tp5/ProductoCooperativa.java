@@ -9,6 +9,10 @@ public class ProductoCooperativa extends Producto{
 	public ProductoCooperativa(String n, double p, int s) {
 		super(n,p,s); 
 	}
+	
+	private double getDescuento() {
+		return this.descuento; 
+	}
 }
 
 
