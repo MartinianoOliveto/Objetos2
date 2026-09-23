@@ -36,7 +36,7 @@ public class ProductoTest {
 	}
 	@Test //testeando la implementacion del metodo de interfaz 
 	public void testPrecio() {
-		assertEquals(25.5d, cerveza.precio());
-		assertEquals(40.8, vino.precio()); 
+		assertEquals(25.5d, cerveza.monto());
+		assertEquals(40.8, vino.monto()); 
 	}
 }

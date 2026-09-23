@@ -13,7 +13,7 @@ public class ProductoCooperativa extends Producto{
 	public double getDescuento() {
 		return this.descuento; 
 	}
-	public double precio() {
+	public double monto() {
 		return this.getPrecio(); 
 	}
 }

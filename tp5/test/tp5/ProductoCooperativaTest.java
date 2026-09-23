@@ -38,8 +38,8 @@ public class ProductoCooperativaTest {
 	}
 	@Test 
 	public void testPrecio() {
-		assertEquals(9, arroz.precio());
-		assertEquals(4.5d, leche.precio()); 
+		assertEquals(9, arroz.monto());
+		assertEquals(4.5d, leche.monto()); 
 	}
 
 }
