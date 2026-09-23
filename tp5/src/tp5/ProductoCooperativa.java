@@ -10,8 +10,11 @@ public class ProductoCooperativa extends Producto{
 		super(n,p,s); 
 	}
 	
-	private double getDescuento() {
+	public double getDescuento() {
 		return this.descuento; 
+	}
+	public double precio() {
+		return this.getPrecio(); 
 	}
 }
 

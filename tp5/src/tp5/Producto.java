@@ -21,14 +21,14 @@ public class Producto implements Cobrable {
 		this.stock = s; 
 	}
 	
-	private String getNombre() {
+	public String getNombre() {
 		return this.nombre; 
 	}
-	private double getPrecio() {
+	public double getPrecio() {
 		return this.precio; 
 	}
-	private int getStock() {
-		return this.getStock(); 
+	public int getStock() {
+		return this.stock; 
 	}
 	
 }
