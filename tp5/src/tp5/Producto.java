@@ -15,4 +15,9 @@ public class Producto implements Cobrable {
 	public double getPrecio() {
 		return this.precio; 
 	}
+	public Producto(String n, double p, int s){
+		this.nombre = n; 
+		this.precio = p; 
+		this.stock = s; 
+	}
 }

@@ -6,6 +6,9 @@ public class ProductoCooperativa extends Producto{
 	public double getPrecio() {
 		return this.precio - (this.precio * this.descuento); 
 	}
+	public ProductoCooperativa(String n, double p, int s) {
+		super(n,p,s); 
+	}
 }
 
 
