@@ -1,6 +1,7 @@
 package tp5;
 
 public class Producto implements Cobrable {
+	private String nombre; 
 	protected double precio; 
 	private int stock; 
 	
