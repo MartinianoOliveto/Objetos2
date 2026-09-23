@@ -1,17 +1,17 @@
 package tp5;
 
-public class Producto implements Costo {
-	private Double precio; 
+public class Producto implements Cobrable {
+	protected double precio; 
 	private int stock; 
 	
-	public void descontarStock() {
-		stock = stock -1; 
-	}
-	public Double getCosto() {
-		return this.precio; 
-	}
-	private Double getPrecio() {
-		
+	public void registrar() {
+		this.descontarStock(); 
 	}
 	
+	private void descontarStock() {
+		stock = stock -1; 
+	}
+	public double getPrecio() {
+		return this.precio; 
+	}
 }

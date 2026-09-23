@@ -4,14 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Caja {
-	private List <Costo> costos = new ArrayList<Costo>(); 
+	private List <Cobrable> costos = new ArrayList<Cobrable>(); 
 	
 	public double getMontoTotal() {
-		return costos.stream().mapToDouble(c->c.getCosto()).sum(); 
+		return costos.stream().mapToDouble(c->c.getPrecio()).sum(); //esto podria ser private  
 	}
 	public void registrarProductos() {
-		costos.stream().forEach(c -> c.registrar()); 
+		costos.stream().forEach(c -> c.registrar()); //esto podria ser private  
 	}
+	public double pasarPorCaja() {
+		this.registrarProductos();
+		return this.getMontoTotal(); 
+	}
+	
 	
 }
 //implementar una interfaz cobrable, y una clase abstracta de las que van a heredar factura y servicio  
