@@ -7,7 +7,7 @@ public class Caja {
 	private List <Cobrable> costos = new ArrayList<Cobrable>(); 
 	
 	public double getMontoTotal() {
-		return costos.stream().mapToDouble(c->c.getPrecio()).sum(); //esto podria ser private  
+		return costos.stream().mapToDouble(c->c.precio()).sum(); //esto podria ser private  
 	}
 	public void registrarProductos() {
 		costos.stream().forEach(c -> c.registrar()); //esto podria ser private  

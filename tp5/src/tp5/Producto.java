@@ -12,7 +12,7 @@ public class Producto implements Cobrable {
 	private void descontarStock() {
 		stock = stock -1; 
 	}
-	public double getPrecio() {
+	public double precio() {
 		return this.precio; 
 	}
 	public Producto(String n, double p, int s){
@@ -20,4 +20,5 @@ public class Producto implements Cobrable {
 		this.precio = p; 
 		this.stock = s; 
 	}
+	
 }
