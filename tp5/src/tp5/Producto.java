@@ -5,6 +5,7 @@ public class Producto implements Cobrable {
 	protected double precio; 
 	private int stock; 
 	
+	@Override 
 	public void registrar() {
 		this.descontarStock(); 
 	}
@@ -12,6 +13,7 @@ public class Producto implements Cobrable {
 	private void descontarStock() {
 		stock = stock -1; 
 	}
+	@Override 
 	public double monto() {
 		return this.precio; 
 	}

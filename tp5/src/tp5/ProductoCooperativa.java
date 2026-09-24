@@ -13,6 +13,7 @@ public class ProductoCooperativa extends Producto{
 	public double getDescuento() {
 		return this.descuento; 
 	}
+	@Override
 	public double monto() {
 		return this.getPrecio(); 
 	}
