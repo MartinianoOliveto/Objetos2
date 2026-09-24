@@ -12,6 +12,11 @@ public class FacturaServicio extends Factura{
 	public double getPrecio() {
 		return this.costoPorUnidad * this.unidadesConsumidas; 
 	}
+	public FacturaServicio(Agencia a, double costoPorUnidad, double unidadesConsumidas) {
+		this.agencia = a; 
+		this.costoPorUnidad = costoPorUnidad; 
+		this.unidadesConsumidas = unidadesConsumidas; 
+	}
 	
 	
 

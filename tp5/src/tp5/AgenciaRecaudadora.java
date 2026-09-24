@@ -16,5 +16,9 @@ public class AgenciaRecaudadora implements Agencia{
 	public String getLocalidad() {
 		return this.localidad;
 	}
+	public AgenciaRecaudadora(String n, String l) {
+		this.nombre = n; 
+		this.localidad = l; 
+	}
 	
 }

@@ -12,5 +12,9 @@ public class FacturaImpuesto extends Factura{
 	public double getPrecio() {
 		return valor; 
 	}
+	public FacturaImpuesto(Agencia a,double v) {
+		this.valor = v; 
+		this.agencia = a; 
+	}
 
 }
