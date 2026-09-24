@@ -1,6 +1,6 @@
 package tp5;
 
-public class Impuesto extends Factura{
+public class FacturaImpuesto extends Factura{
 	private double valor; 
 	
 	

@@ -1,6 +1,6 @@
 package tp5;
 
-public class Servicio extends Factura{
+public class FacturaServicio extends Factura{
 	private double costoPorUnidad; 
 	private double unidadesConsumidas; 
 	
