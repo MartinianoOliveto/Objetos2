@@ -16,6 +16,9 @@ public class Caja {
 		this.registrarProductos();
 		return this.getMontoTotal(); 
 	}
+	public void agregarACaja(Cobrable c) {
+		costos.add(c); 
+	}
 	
 	
 }
