@@ -8,7 +8,7 @@ public abstract class SolicitudCredito {
 	public abstract boolean esAceptable(); 
 	
 	public double cuotaMensual() {
-		return this.montoSolicitado / 12; 
+		return this.montoSolicitado / this.plazo; 
 	}
 	
 	public SolicitudCredito(Cliente c, double m, int p) {

@@ -8,4 +8,9 @@ public class Propiedad {
 	public double getValorFiscal() {
 		return this.valorFiscal; 
 	}
+	public Propiedad(String descripcion, String direccion, double valorFiscal) {
+		this.descripcion = descripcion; 
+		this.direccion = direccion; 
+		this.valorFiscal = valorFiscal; 
+	}
 }

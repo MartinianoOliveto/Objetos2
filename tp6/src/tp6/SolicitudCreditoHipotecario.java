@@ -6,7 +6,7 @@ public class SolicitudCreditoHipotecario extends SolicitudCredito{
 	
 	@Override 
 	public boolean esAceptable() {
-		return this.cuotaMensual() <= cliente.getSueldoNetoMensual() && this.montoSolicitado <= garantia.getValorFiscal() * 0.7 && cliente.getEdad() <= 65; 
+		return this.cuotaMensual() <= cliente.getSueldoNetoMensual() * 0.5 && this.montoSolicitado <= garantia.getValorFiscal() * 0.7 && cliente.edadEnAños(this.plazo/12) <= 65; 
 	}
 	
 	public SolicitudCreditoHipotecario(Cliente c, double m, int p, Propiedad g) {
