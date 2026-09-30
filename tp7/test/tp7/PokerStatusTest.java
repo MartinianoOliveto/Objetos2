@@ -11,16 +11,11 @@ class PokerStatusTest {
 	@BeforeEach
 	public void setUp() {
 		p = new PokerStatus(); 
-		p.agregarALaMano("5P");
-		p.agregarALaMano("5C");
-		p.agregarALaMano("5D");
-		p.agregarALaMano("5T");
-		p.agregarALaMano("1D"); 
-	}
-
-	@Test
+	}	
+	@Test 
 	void verificarTest() {
-		assertEquals(true, p.hayPoker()); 
+		assertEquals(true, p.verificar("5P","5C","5D","5T","1D")); 
 	}
+	
 
 }
