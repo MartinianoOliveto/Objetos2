@@ -1,59 +1,13 @@
 package tp7;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class PokerStatus {
-	//IMPLEMENTACION CON COLECCIONES 
-	//private List<String> cartas = new ArrayList<String>(); 
 	
-	/*public void agregarALaMano(String c) {
-		cartas.add(c); 
-	}*/
-	/*public boolean hayPoker() {
-		return this.hay4ConMismoNumero();
-	}*/
-	/*private boolean hay4ConMismoNumero() {
-		//return cartas.stream().map(c ->c.substring(0, c.length()-1)).count() == 4; 	
-		return this.cantCartasConElMismoNumeroQueLaPrimera() == 4; 
-	}
-	private int cantCartasConElMismoNumeroQueLaPrimera() {
-		String primeraCarta = cartas.getFirst();
-		String numeroPrimeraCarta = primeraCarta.substring(0, primeraCarta.length()-1); 
-		
-		int cartasConElMismoNumero = 1; //siempre la primera es el numero que husco 
-		
-		for(int i=1; i<cartas.size(); i++) {
-			String cartaActual = cartas.get(i);
-			if(cartaActual.substring(0,cartaActual.length()-1).equals(numeroPrimeraCarta)){
-				cartasConElMismoNumero++; 
-			}
-		}
-		return cartasConElMismoNumero; 
-	}*/
-	
-	//RECIBE STRINGS 
-	/*public boolean verificar(String c1, String c2, String c3, String c4, String c5) {
-		List<String> cartas = new ArrayList<String>();
-		cartas.add(c2);
-		cartas.add(c3);
-		cartas.add(c4);
-		cartas.add(c5); 
-		
-		String primeraCarta = c1; 
-		String numeroPrimeraCarta = primeraCarta.substring(0, primeraCarta.length()-1); 
-		
-		int cartasConElMismoNumero = 1; //siempre la primera es el numero que husco 
-		
-		for(int i=0; i<cartas.size(); i++) {
-			String cartaActual = cartas.get(i);
-			if(cartaActual.substring(0,cartaActual.length()-1).equals(numeroPrimeraCarta)){
-				cartasConElMismoNumero++; 
-			}
-		}
-		return cartasConElMismoNumero == 4; 
-	}*/
-	public String verificar(String c1, String c2, String c3, String c4, String c5) {
+	public String verificar(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5) {
 		if(this.hayPoker(c1,c2,c3,c4,c5)) {
 			return "Poker";
 		}else if(this.hayTrio(c1,c2,c3,c4,c5)) {
@@ -67,65 +21,79 @@ public class PokerStatus {
 			}
 		}
 	}
-	public boolean hayPoker(String c1, String c2, String c3, String c4, String c5) {
-		List<String> cartas = new ArrayList<String>();
-		cartas.add(c2);
-		cartas.add(c3);
-		cartas.add(c4);
-		cartas.add(c5); 
-		
-		String primeraCarta = c1; 
-		String numeroPrimeraCarta = primeraCarta.substring(0, primeraCarta.length()-1); 
-		
-		int cartasConElMismoNumero = 1; //siempre la primera es el numero que husco 
-		
-		for(int i=0; i<cartas.size(); i++) {
-			String cartaActual = cartas.get(i);
-			if(cartaActual.substring(0,cartaActual.length()-1).equals(numeroPrimeraCarta)){
-				cartasConElMismoNumero++; 
-			}
-		}
-		return cartasConElMismoNumero == 4; 
+	
+	//Las formas de tener poker son dos: buscando desde la primera, o de la ultima, si hay poker, al menos una de las indicadas esta en los "extremos" de la mano 
+	private boolean hayPoker(Carta c1,Carta c2,Carta c3,Carta c4,Carta c5) {
+		return this.hayPokerEnLaPrimera(c1, c2, c3, c4, c5) || this.hayPokerEnLaUltima(c1, c2, c3, c4, c5);
 	}
-	public boolean hayTrio(String c1, String c2, String c3, String c4, String c5) {
-		List<String> cartas = new ArrayList<String>();
+	
+	private boolean hayPokerEnLaPrimera(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5) {
+		List <Carta> cartas = new ArrayList<Carta>(); 
+		cartas.add(c1); 
 		cartas.add(c2);
 		cartas.add(c3);
 		cartas.add(c4);
-		cartas.add(c5); 
+		cartas.add(c5);
 		
-		String primeraCarta = c1; 
-		String numeroPrimeraCarta = primeraCarta.substring(0, primeraCarta.length()-1); 
-		
-		int cartasConElMismoNumero = 1; //siempre la primera es el numero que husco 
-		
-		for(int i=0; i<cartas.size(); i++) {
-			String cartaActual = cartas.get(i);
-			if(cartaActual.substring(0,cartaActual.length()-1).equals(numeroPrimeraCarta)){
-				cartasConElMismoNumero++; 
-			}
-		}
-		return cartasConElMismoNumero == 3; 
+		return cartas.stream().filter(c->c.getValor()==c1.getValor()).count()==4; 
 	}
-	public boolean hayColor(String c1, String c2, String c3, String c4, String c5) {
-		List<String> cartas = new ArrayList<String>();
+	private boolean hayPokerEnLaUltima(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5) {
+		List <Carta> cartas = new ArrayList<Carta>(); 
+		cartas.add(c1);
 		cartas.add(c2);
 		cartas.add(c3);
 		cartas.add(c4);
 		cartas.add(c5); 
 		
-		String primeraCarta = c1; 
-		char colorPrimeraCarta = primeraCarta.charAt(primeraCarta.length()-1); 
+		return cartas.stream().filter(c->c.getValor()==c5.getValor()).count()==4; 
+	}
+	//Las formas de ver el trio son las mismas que el poker, pero tambien puede pasar que este en el medio. 
+	
+	private boolean hayTrio(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5) {
+		return this.hayTrioEnLaPrimera(c1,c2,c3,c4,c5) || this.hayTrioEnLaUltima(c1,c2,c3,c4,c5) || this.hayTrioEnElMedio(c1,c2,c3,c4,c5); 
+	}
+	
+	private boolean hayTrioEnLaPrimera(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5) {
+		List <Carta> cartas = new ArrayList<Carta>();
+		cartas.add(c1); 
+		cartas.add(c2);
+		cartas.add(c3);
+		cartas.add(c4);
+		cartas.add(c5);
 		
-		int cartasConElMismoColor = 1; //siempre la primera es el numero que husco 
+		return cartas.stream().filter(c->c.getValor()==c1.getValor()).count()==3; 
+	}
+	private boolean hayTrioEnLaUltima(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5) {
+		List <Carta> cartas = new ArrayList<Carta>();
+		cartas.add(c1);
+		cartas.add(c2);
+		cartas.add(c3);
+		cartas.add(c4);
+		cartas.add(c5);
 		
-		for(int i=0; i<cartas.size(); i++) {
-			String cartaActual = cartas.get(i);
-			if(cartaActual.charAt(cartaActual.length()-1)==(colorPrimeraCarta)){
-				cartasConElMismoColor++; 
-			}
-		}
-		return cartasConElMismoColor == 5; 
+		return cartas.stream().filter(c->c.getValor()==c5.getValor()).count()==3; 
+	}
+	private boolean hayTrioEnElMedio(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5) {
+		List <Carta> cartas = new ArrayList<Carta>();
+		cartas.add(c1);
+		cartas.add(c2);
+		cartas.add(c3);
+		cartas.add(c4);
+		cartas.add(c5);
+		
+		return cartas.stream().filter(c->c.getValor()==c2.getValor()).count() ==3; 
+	}
+	
+
+	private boolean hayColor(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5) {
+		List <Carta> cartas = new ArrayList<Carta>(); 
+		cartas.add(c1);
+		cartas.add(c2);
+		cartas.add(c3);
+		cartas.add(c4);
+		cartas.add(c5); 
+		
+		return cartas.stream().allMatch(c->c.getPalo()==c1.getPalo());
 	}
 	
 }
