@@ -3,9 +3,12 @@ package tp7;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import java.util.Arrays;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.sun.tools.javac.util.List;
 
 class PokerStatusTest {
 	private PokerStatus p; 
@@ -15,6 +18,8 @@ class PokerStatusTest {
 	private Carta asT;
 	private Carta cincoC;
 	private Carta cincoD; 
+	private Mano pokerAs; 
+	private Mano pokerCinco; 
 	
 	@BeforeEach
 	public void setUp() {
@@ -36,10 +41,7 @@ class PokerStatusTest {
 		when(cincoC.getPalo()).thenReturn("Corazones");
 		cincoD = mock(Carta.class);
 		when(cincoD.getValor()).thenReturn(JerarquiaPoker.Cinco);
-		when(cincoD.getPalo()).thenReturn("Diamantes");
-		
-		
-		
+		when(cincoD.getPalo()).thenReturn("Diamantes");		
 	}	
 	/*@Test 
 	void verificarTest() {
@@ -62,7 +64,7 @@ class PokerStatusTest {
 		assertEquals("Nada", p.verificar("1D", "3C", "7T", "QC", "KP")); 
 	}*/
 	
-	@Test 
+	/*@Test 
 	void verificarPokerEnPrimeraTest() {
 		String resultado = p.verificar(asC, asD, asP, asT, cincoC); 
 		assertEquals("Poker", resultado); 
@@ -95,6 +97,10 @@ class PokerStatusTest {
 	void verificarTrioMedioTest() {
 		String resultado = p.verificar(cincoC, asT, asP, asD, cincoD);
 		assertEquals("Trio",resultado); 
+	}*/
+	@Test 
+	void verificarPokerTest() {
+		assertEquals(true, p.verificar(pokerAs, pokerCinco)); 
 	}
 	
 

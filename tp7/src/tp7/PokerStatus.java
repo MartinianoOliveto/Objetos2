@@ -7,7 +7,7 @@ import java.util.List;
 
 public class PokerStatus {
 	
-	public String verificar(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5) {
+	/*public String verificar(Carta c1, Carta c2, Carta c3, Carta c4, Carta c5) {
 		if(this.hayPoker(c1,c2,c3,c4,c5)) {
 			return "Poker";
 		}else if(this.hayTrio(c1,c2,c3,c4,c5)) {
@@ -20,7 +20,25 @@ public class PokerStatus {
 				return "Nada"; 
 			}
 		}
+	}*/
+	/*public Mano verificar(Mano m1, Mano m2) {
+		return this.jugadaGanadora(m1,m2); 
 	}
+	private Mano jugadaGanadora(Mano j1, Mano j2) {
+		if(j1.prioridad()!=j2.prioridad()) {
+			return this.mejorManoEntre(m1,m2); 
+		}
+	}
+	private Mano desempatar(Mano j1,Mano j2) {
+		if(j1.valorDeLaMano > j2.valorDeLaMano) {
+			return j1; 
+		}else {
+			return j2; 
+		}
+	}
+	private Mano mejorManoEntre(Mano m1, Mano m2) {
+		return 
+	}*/
 	
 	//Las formas de tener poker son dos: buscando desde la primera, o de la ultima, si hay poker, al menos una de las indicadas esta en los "extremos" de la mano 
 	private boolean hayPoker(Carta c1,Carta c2,Carta c3,Carta c4,Carta c5) {
